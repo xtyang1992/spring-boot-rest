@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xtyang.common.mapper.UserMapper">
+    <resultMap id="User" type="com.xtyang.common.model.User"></resultMap>
+
+    <!--当返回类型是集合类型的时候 resultType 应该是集合容纳的类型而不是集合本身的类型。-->
+    <select id="getAllPeronInfo" resultType="com.xtyang.common.model.User">
+        SELECT * FROM person
+    </select>
+
+    <!--resultMap 或者 resultType 只能用一个-->
+    <select id="getPersonInfo" resultMap="User" parameterType="int">
+        SELECT * FROM person WHERE id = #{id}
+    </select>
+</mapper>

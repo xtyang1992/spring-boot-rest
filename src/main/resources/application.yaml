@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    platform: mysql
+    schema: mybatis/schema-mysql.sql
+    url: jdbc:mysql://localhost/mybatis
+    username: mybatis_user
+    password: password4mybatis
+    driverClassName: com.mysql.jdbc.Driver
+  boot:
+    admin:
+      url: http://localhost:8090
+mybatis:
+  #config: classpath:mybatis/mybatis-config.xml
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  typeAliasesPackage: com.xtyang.common.model
+logging:
+  file: ./logs/spring-boot-rest.log
